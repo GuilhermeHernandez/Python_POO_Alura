@@ -1,22 +1,16 @@
-import forca
-import advinhacao
+def cria_conta(nmr,nome,saldo,limite):
+    conta = {'numero' : nmr,
+             'titular' : nome,
+             'saldo' : saldo ,
+             'limite' : limite}
 
-def escolhe_jogo():
-    print("**************************")
-    print("*** Escolha o jogo ***")
-    print("**************************")
+    return conta
 
-    print("(1) Forca (2) Advinhação")
+def deposita(conta,valor):
+    conta['saldo'] += valor
 
-    jogo = int(input("Qual jogo?"))
+def sacar(conta,valor):
+    conta['saldo'] -= valor
 
-    if (jogo == 1):
-        print("Jogando Forca!")
-        forca.jogar()
-
-    elif(jogo == 2):
-        print("Jogando advinhação!")
-        advinhacao.jogar()
-
-if(__name__=="__main__"):
-    escolhe_jogo()
+def extrato(conta):
+    print(f'O saldo é R${conta["saldo"]} ')
